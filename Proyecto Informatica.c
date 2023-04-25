@@ -17,7 +17,7 @@ int main () {
 	printf("Introduce el nombre del fichero que contine los datos \n");
 	scanf("%s", &nombrefichero);
 	
-	fentrada = fopen("nombrefichero", r); //read
+	fentrada = fopen("nombrefichero", "r"); //read
 	if (fentrada == NULL) {
 		printf("Error en la apertura del fichero de entrada\n");
 		return 0;
