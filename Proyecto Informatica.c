@@ -27,12 +27,12 @@ int main () {
         printf("Error en la apertura del fichero de salida\n");
         return 0;
     }
-    int valor = 0;
-    while (fscanf(fentrada, "%d", &valor) == 1) {
-        numfichero++;
+    int i,conductividad;
+    float ph;
+    for (i=0; i<numfichero; i++) {
+    	fscanf(fentrada, "%d %f", &conductividad, &ph);
+		printf("%d %f\n", conductividad, ph);
     }
-
-    printf("El archivo %s contiene %d valores\n", nombrefichero, numfichero);
 
     fclose(fentrada);
     fclose(fsalida);
