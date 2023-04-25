@@ -13,6 +13,7 @@ int main () {
 	FILE*fentrada, *fsalida;
 	struct TLavapies mes01;
 	char nombrefichero[100];
+	int numfichero=0;
 	
 	printf("Introduce el nombre del fichero que contine los datos \n");
 	scanf("%s", &nombrefichero);
@@ -27,7 +28,12 @@ int main () {
 		printf("Error en la apertura del fichero de salida\n");
 		return 0;
 	}
-	
+	   int valor=0;
+        while(fscanf(FILE, "%d", &valor) == 1) {
+            nombrefichero[numfichero++] = valor;
+        }
+
+       
 	fclose(fentrada);
 	fclose(fsalida);
 	
