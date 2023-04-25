@@ -29,8 +29,8 @@ int main () {
     }
     int i;
     for (i=0; i<numfichero; i++) {
-    	fscanf(fentrada, "%d %f", &mes01conductividad, &mes01ph);
-		printf("%d %f\n", mes01conductividad, mes01ph);
+    	fscanf(fentrada, "%d %f", &mes01.conductividad, &mes01ph);
+		printf("%d %f\n", mes01.conductividad, mes01ph);
     }
 
     fclose(fentrada);
