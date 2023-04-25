@@ -27,11 +27,10 @@ int main () {
         printf("Error en la apertura del fichero de salida\n");
         return 0;
     }
-    int i,conductividad;
-    float ph;
+    int i;
     for (i=0; i<numfichero; i++) {
-    	fscanf(fentrada, "%d %f", &conductividad, &ph);
-		printf("%d %f\n", conductividad, ph);
+    	fscanf(fentrada, "%d %f", &mes01conductividad, &mes01ph);
+		printf("%d %f\n", mes01conductividad, mes01ph);
     }
 
     fclose(fentrada);
