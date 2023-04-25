@@ -6,7 +6,7 @@ struct TLavapies {
 		int conductividad;
 		int turbidez;
 		int coliformes;
-	}
+	};
 	
 int main () {
 	
