@@ -1,0 +1,26 @@
+Fuente de agua	pH	Conductividad (microS/cm)	Turbidez (NTU)	Coliformes (UFC/100mL)
+Fuente 1	7.3	310	3	0
+Fuente 2	7.5	450	1	0
+Fuente 3	7.1	360	2	0
+Fuente 4	7.2	390	2	0
+Fuente 5	7.4	240	1	0
+Fuente 6	7.7	510	4	0
+Fuente 7	7.3	370	2	0
+Fuente 8	7.5	410	1	0
+Fuente 9	6.9	300	3	0
+Fuente 10	7.2	460	2	0
+Fuente 11	7.1	260	1	0
+Fuente 12	7.5	490	3	0
+Fuente 13	7.3	390	2	0
+Fuente 14	7.4	360	1	0
+Fuente 15	7.2	310	3	0
+Fuente 16	7.5	410	2	0
+Fuente 17	7.1	460	1	0
+Fuente 18	7.3	370	2	0
+Fuente 19	7.4	520	3	0
+Fuente 20	7.5	290	1	0
+Fuente 21	7.2	380	2	0
+Fuente 22	7.3	350	3	0
+Fuente 23	6.8	210	1	0
+Fuente 24	7.4	320	2	0
+Fuente 25	7.2	420	1	2
