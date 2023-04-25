@@ -1,11 +1,11 @@
 # [Título del trabajo]
 
-[Descripción breve del proyecto a realizar (2-3 frases).]
+Proyecto Infórmatica PH fuentes
 
 ## Integrantes del equipo
 
-[Nombres, apellidos, y usuario GitHub de los integrantes del equipo.]
+Pablo Parrilla, Adrían Ramírez, Daniel Pajarón y Carlos Toribio 
 
 ## Objetivos del trabajo
 
-[Lista de los objetivos que se persiguen con el trabajo propuesto.]
+Desarrollar un programa que permita registrar y analizar los datos que se recogen en las fuentes de distintos barrios de Madrid. 
