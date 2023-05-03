@@ -53,7 +53,7 @@ void imprimirMes(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentrada)
         fprintf(fsalida, "%s\t%s\t%s\t%s\t%s\n", titulo1,titulo2, titulo3, titulo4, titulo5);
     }
     
-    for (i = 0; i < dim; i++) {
+    for (i = 1; i < dim; i++) {
         fprintf(fsalida, "%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes);
     }
 }
