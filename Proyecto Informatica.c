@@ -9,7 +9,7 @@ struct TDistrito {
     int coliformes;
 };
 
-void imprimirMes(struct TDistrito [], int, FILE *);
+void imprimirMes(struct TDistrito [], int, FILE *, FILE*);
 
 int main () {
     int nfuentes = 25, i;
@@ -32,23 +32,19 @@ int main () {
         printf("Error en la apertura del fichero de salida\n");
         return 0;
     }
-    for (i = 0; i < nfuentes; i++) {
-        fscanf(fentrada, "%s %f %d %d %d\n", mes[i].parametros, &mes[i].ph, &mes[i].conductividad, &mes[i].turbidez, &mes[i].coliformes);
-    }
-    
-    fprintf(fsalida, "%s\t%.2f\t%d\t%d\t%d\n", mes[0].parametros, mes[0].ph, mes[0].conductividad, mes[0].turbidez, mes[0].coliformes);
 
-    imprimirMes(mes, 12, fentrada);
+    imprimirMes(mes, 12, fsalida, fentrada);
     
     fclose(fentrada);
     fclose(fsalida);
 }
 
-void imprimirMes(struct TDistrito mes[], int dim, FILE *fsalida) {
+void imprimirMes(struct TDistrito mes[], int dim, FILE *fsalida, FILE*fentrada) {
     int i, nfuentes = 25;
     
-    printf("====DOCUMENTO==== \n");
     for (i = 0; i < nfuentes; i++) {
-        fprintf(fsalida, "%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes);
-    }
+    	 while(fscanf(fentrada, "%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes != EOF)) {
+		fprintf(fsalida, "%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes);
+		}
+	}
 }
