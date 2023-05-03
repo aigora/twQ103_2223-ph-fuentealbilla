@@ -12,10 +12,9 @@ struct TDistrito {
 void imprimirMes(struct TDistrito [], int, FILE *, FILE*);
 
 int main () {
-    int nfuentes = 25, i;
     
     FILE *fentrada, *fsalida;
-    struct TDistrito mes[12];
+    struct TDistrito mes[26] = {0};
     char nombrefichero[100];
     
     printf("Introduce el nombre del fichero que contine los datos \n");
@@ -27,24 +26,34 @@ int main () {
         return 0;
     }
 
-	fsalida = fopen("resultadosfuentes.txt", "w"); //write
-	if (fsalida == NULL) {
+    fsalida = fopen("resultadosfuentes.txt", "w"); //write
+    if (fsalida == NULL) {
         printf("Error en la apertura del fichero de salida\n");
         return 0;
     }
 
-    imprimirMes(mes, 12, fsalida, fentrada);
+    imprimirMes(mes, 26, fsalida, fentrada);
     
     fclose(fentrada);
     fclose(fsalida);
 }
 
-void imprimirMes(struct TDistrito mes[], int dim, FILE *fsalida, FILE*fentrada) {
-    int i, nfuentes = 25;
+void imprimirMes(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentrada) {
+    int i;
+    char titulo1[50], titulo2[50], titulo3[50], titulo4[50], titulo5[50];
     
-    for (i = 0; i < nfuentes; i++) {
-    	 while(fscanf(fentrada, "%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes != EOF)) {
-		fprintf(fsalida, "%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes);
-		}
-	}
+    for (i = 0; i < 1; i++) {
+        fscanf(fentrada, "%s%s%s%s%s", titulo1, titulo2, titulo3, titulo4, titulo5);
+    }
+    for (i = 1; i < dim; i++) {
+        fscanf(fentrada, "%s%f%d%d%d", mes[i].parametros, &mes[i].ph, &mes[i].conductividad, &mes[i].turbidez, &mes[i].coliformes);
+    }
+    
+    for (i = 0; i < 1; i++) {
+        fprintf(fsalida, "%s\t%s\t%s\t%s\t%s\n", titulo1,titulo2, titulo3, titulo4, titulo5);
+    }
+    
+    for (i = 0; i < dim; i++) {
+        fprintf(fsalida, "%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes);
+    }
 }
