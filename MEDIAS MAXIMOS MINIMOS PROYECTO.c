@@ -17,7 +17,7 @@ int main(){
 	char maximo;
 	char minimo;
 	
-	printf("¿Que estadistica quieres hacer? Selecciona un numero de los siguientes: \n");
+	printf("Â¿Que estadistica quieres hacer? Selecciona un numero de los siguientes: \n");
 	
 	printf("1 - Media\n");
 	printf("2 - Maximo\n");
@@ -28,7 +28,7 @@ int main(){
 	switch(estadisticas){ //hacer estadisticas 
 		
 		case 1:
-			printf("¿De que parametro quieres hacer la media?\n");
+			printf("Â¿De que parametro quieres hacer la media?\n");
 			printf("1 - Ph\n");
 			printf("2 - Conductividad\n");
 			printf("3 - Turbidez\n");
@@ -51,7 +51,7 @@ int main(){
 			break;
 			
 		case 2:
-			printf("¿De que parametro quieres buscar el maximo?\n");
+			printf("Â¿De que parametro quieres buscar el maximo?\n");
 			printf("1 - Ph\n");
 			printf("2 - Conductividad\n");
 			printf("3 - Turbidez\n");
@@ -74,7 +74,7 @@ int main(){
 			break;
 			
 		case 3:
-			printf("¿De que parametro quieres buscar el minimo?\n");
+			printf("Â¿De que parametro quieres buscar el minimo?\n");
 			printf("1 - Ph\n");
 			printf("2 - Conductividad\n");
 			printf("3 - Turbidez\n");
@@ -196,5 +196,49 @@ int maximo4 (int n){ //maximo coliformes
 		}
 	}
 	return maximo4;
+}
+float minimo1 (int n){ //minimo ph
+	
+	int i, minimo1=0;
+	
+	for(i=0;i<25;i++){
+		if(minimo1>mes[i].ph){
+			minimo1=mes[i].ph;
+		}
+	}
+	return minimo1;
+}
+float minimo2(int n){ //minimo conductividad 
+	
+	int i, minimo2=0;
+	
+	for(i=0;i<25;i++){
+		if(minimo2>mes[i].conductividad){
+			minimo2=mes[i].conductividad;
+		}
+	}
+	return minimo2;
+}
+float minimo3 (int n){ //minimo turbidez
+	
+	int i, minimo3=0;
+	
+	for(i=0;i<25;i++){
+		if(minimo3>mes[i].turbidez){
+			minimo3=mes[i].turbidez;
+		}
+	}
+	return minimo3;
+}
+float minimo4 (int n){ //minimo coliformes
+	
+	int i, minimo4=0;
+	
+	for(i=0;i<25;i++){
+		if(minimo4>mes[i].coliformes){
+			minimo4=mes[i].coliformes;
+		}
+	}
+	return minimo4;
 }
 
