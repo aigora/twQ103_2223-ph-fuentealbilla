@@ -6,9 +6,14 @@ float media3 (int)
 float media4 (int)
 
 float maximo1 (int n)
-int maximo2 (int n)
-int maximo3 (int n)
-int maximo4 (int n)
+float maximo2 (int n)
+float maximo3 (int n)
+float maximo4 (int n)
+	
+float minimo1 (int n)
+float minimo2 (int n)
+float minimo3 (int n)
+float minimo4 (int n)
 
 int main(){
 	
