@@ -1,4 +1,4 @@
-Fuente de agua	pH	Conductividad (microS/cm)	Turbidez	Coliformes (UFC/100mL)
+Parametros pH Conductividad Turbidez Coliformes
 Fuente 1	7.4	450	2	0
 Fuente 2	7.1	350	3	0
 Fuente 3	7.0	400	1	0
