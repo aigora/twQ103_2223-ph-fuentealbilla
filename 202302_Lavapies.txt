@@ -9,7 +9,7 @@ Fuente_7	7.2	350	3	0
 Fuente_8	7.5	400	2	0
 Fuente_9	6.8	300	3	0
 Fuente_10	7.1	450	4	0
-Fuente_11	7.0	250	1 0
+Fuente_11	7.0	250	1	0
 Fuente_12	7.4	500	3	0
 Fuente_13	7.2	400	4	1
 Fuente_14	7.3	350	3	0
