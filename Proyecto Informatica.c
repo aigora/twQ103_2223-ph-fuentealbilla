@@ -9,6 +9,7 @@ struct TDistrito {
     int coliformes;
 };
 
+void imprimirMestxt(struct TDistrito [], int, FILE *, FILE*);
 void imprimirMes(struct TDistrito [], int, FILE *, FILE*);
 
 int main () {
@@ -32,13 +33,14 @@ int main () {
         return 0;
     }
 
+    imprimirMestxt(mes, 26, fsalida, fentrada);
     imprimirMes(mes, 26, fsalida, fentrada);
     
     fclose(fentrada);
     fclose(fsalida);
 }
 
-void imprimirMes(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentrada) {
+void imprimirMestxt(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentrada) {
     int i;
     char titulo1[50], titulo2[50], titulo3[50], titulo4[50], titulo5[50];
     
@@ -55,5 +57,25 @@ void imprimirMes(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentrada)
     
     for (i = 1; i < dim; i++) {
         fprintf(fsalida, "%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes);
+    }
+}
+
+void imprimirMes(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentrada) {
+    int i;
+    char titulo1[50], titulo2[50], titulo3[50], titulo4[50], titulo5[50];
+    
+    for (i = 0; i < 1; i++) {
+        fscanf(fentrada, "%s%s%s%s%s", titulo1, titulo2, titulo3, titulo4, titulo5);
+    }
+    for (i = 1; i < dim; i++) {
+        fscanf(fentrada, "%s%f%d%d%d", mes[i].parametros, &mes[i].ph, &mes[i].conductividad, &mes[i].turbidez, &mes[i].coliformes);
+    }
+    
+    for (i = 0; i < 1; i++) {
+        printf("%s\t%s\t%s\t%s\t%s\n", titulo1,titulo2, titulo3, titulo4, titulo5);
+    }
+    
+    for (i = 1; i < dim; i++) {
+        printf("%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes);
     }
 }
