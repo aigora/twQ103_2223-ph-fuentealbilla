@@ -47,9 +47,10 @@ void imprimirMestxt(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentra
     for (i = 0; i < 1; i++) {
         fscanf(fentrada, "%s%s%s%s%s", titulo1, titulo2, titulo3, titulo4, titulo5);
     }
-    for (i = 1; i < dim; i++) {
-        fscanf(fentrada, "%s%f%d%d%d", mes[i].parametros, &mes[i].ph, &mes[i].conductividad, &mes[i].turbidez, &mes[i].coliformes);
-    }
+    
+    while (fscanf(fentrada, "%s%f%d%d%d", mes[i].parametros, &mes[i].ph, &mes[i].conductividad, &mes[i].turbidez, &mes[i].coliformes) != EOF) {
+		i++;
+	}
     
     for (i = 0; i < 1; i++) {
         fprintf(fsalida, "%s\t%s\t%s\t%s\t%s\n", titulo1,titulo2, titulo3, titulo4, titulo5);
@@ -64,13 +65,15 @@ void imprimirMes(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentrada)
     int i;
     char titulo1[50], titulo2[50], titulo3[50], titulo4[50], titulo5[50];
     
+    printf("\n\t\t\t----DOCUMENTO----\n\n");
     for (i = 0; i < 1; i++) {
         fscanf(fentrada, "%s%s%s%s%s", titulo1, titulo2, titulo3, titulo4, titulo5);
     }
-    for (i = 1; i < dim; i++) {
-        fscanf(fentrada, "%s%f%d%d%d", mes[i].parametros, &mes[i].ph, &mes[i].conductividad, &mes[i].turbidez, &mes[i].coliformes);
-    }
     
+	while (fscanf(fentrada, "%s%f%d%d%d", mes[i].parametros, &mes[i].ph, &mes[i].conductividad, &mes[i].turbidez, &mes[i].coliformes) != EOF) {
+		i++;
+	}
+	
     for (i = 0; i < 1; i++) {
         printf("%s\t%s\t%s\t%s\t%s\n", titulo1,titulo2, titulo3, titulo4, titulo5);
     }
