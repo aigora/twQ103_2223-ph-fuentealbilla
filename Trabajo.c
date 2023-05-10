@@ -30,7 +30,7 @@ int minimo4 (struct TDistrito[], int);
 
 int main () {
     	
-	int estadisticas, media_particular, maximo, minimo, opciones;
+	int estadisticas, media_particular, maximo, minimo;
 	float media1, media2, media3, media4, maximo1, maximo2, maximo3, maximo4, minimo1, minimo2, minimo3, minimo4;
 	 
 	FILE *fentrada, *fsalida;
