@@ -30,8 +30,8 @@ int minimo4 (struct TDistrito[], int);
 
 int main () {
     	
-	int estadisticas, media_particular, maximo, minimo, documento;
-	float media1, media2, media3, media4,contador1, contador2, contador3, contador4, contador5, contador6, contador7, contador8;
+	int estadisticas, media_particular, maximo, minimo;
+	float media1, media2, media3, media4, maximo1, maximo2, maximo3, maximo4, minimo1, minimo2, minimo3, minimo4;
 	 
 	FILE *fentrada, *fsalida;
     struct TDistrito mes[26] = {0};
@@ -52,20 +52,10 @@ int main () {
         return 0;
     }
 	
-	printf("Quieres imprimir el documento en .exe (1) o .txt(2) \n");
-	scanf("%d", &documento);
-	
-	switch (documento) {
-			case 1: 
-				imprimirMes(mes, 26, fsalida, fentrada);
-				break;
-				
-			case 2:
-				imprimirMestxt(mes, 26, fsalida, fentrada);
-				break;
-		}	
+    imprimirMes(mes, 26, fsalida, fentrada);
+	imprimirMestxt(mes, 26, fsalida, fentrada);
     
-	printf("Que estadistica quieres calcular? Selecciona un numero de los siguientes:\n1 - Media\n2 - Maximo\n3 - Minimo\n");
+	printf("\nQue estadistica quieres calcular? Selecciona un numero de los siguientes:\n1 - Media\n2 - Maximo\n3 - Minimo\n");
 	scanf("%d", &estadisticas);
 	
 	switch(estadisticas){ //hacer estadisticas 
@@ -101,16 +91,16 @@ int main () {
 			switch(maximo){
 				
 				case 1:
-					printf("Maximo de pH = %f", mes[contador1].ph);
+					printf("Maximo de pH = %d", maximo1);
 					break;
 				case 2:
-					printf("Maximo de Conductividad = %d", mes[contador2].conductividad);
+					printf("Maximo de Conductividad = %d", maximo2);
 					break;
 				case 3:
-					printf("Maximo de Turbidez = %d", mes[contador3].turbidez);
+					printf("Maximo de Turbidez = %d", maximo3);
 					break;
 				case 4:
-					printf("Maximo de Coliformes = %d", mes[contador4].coliformes);
+					printf("Maximo de Coliformes = %d", maximo4);
 					break;
 			}
 			
@@ -124,16 +114,16 @@ int main () {
 			switch(minimo){
 				
 				case 1:
-					printf("Minimo de pH = %f", mes[contador5].ph);
+					printf("Minimo de pH = %d", minimo1);
 					break;
 				case 2:
-					printf("Minimo de Conductividad = %d", mes[contador6].conductividad);
+					printf("Minimo de Conductividad = %d", minimo2);
 					break;
 				case 3:
-					printf("Minimo de Turbidez = %d", mes[contador7].turbidez);
+					printf("Minimo de Turbidez = %d", minimo3);
 					break;
 				case 4:
-					printf("Minimo de Coliformes = %d", mes[contador8].coliformes);
+					printf("Minimo de Coliformes = %d", minimo4);
 					break;
 			}
 			
@@ -161,7 +151,7 @@ void imprimirMes(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentrada)
         fprintf(fsalida, "%s\t%s\t%s\t%s\t%s\n", titulo1,titulo2, titulo3, titulo4, titulo5);
     }
     
-    for (i = 0; i < dim; i++) {
+    for (i = 1; i < dim; i++) {
         fprintf(fsalida, "%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes);
     }
 }
@@ -171,7 +161,7 @@ void imprimirMestxt(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentra
     char titulo1[50], titulo2[50], titulo3[50], titulo4[50], titulo5[50];
     
     for (i = 0; i < 1; i++) {
-        scanf("%s%s%s%s%s", titulo1, titulo2, titulo3, titulo4, titulo5);
+        fscanf(fentrada, "%s%s%s%s%s", titulo1, titulo2, titulo3, titulo4, titulo5);
     }
     
     while (fscanf(fentrada, "%s%f%d%d%d", mes[i].parametros, &mes[i].ph, &mes[i].conductividad, &mes[i].turbidez, &mes[i].coliformes) != EOF) {
@@ -182,7 +172,7 @@ void imprimirMestxt(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentra
         printf("%s\t%s\t%s\t%s\t%s\n", titulo1,titulo2, titulo3, titulo4, titulo5);
     }
     
-    for (i = 0; i < dim; i++) {
+    for (i = 1; i < dim; i++) {
         printf("%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes);
     }
 }
