@@ -30,7 +30,7 @@ int minimo4 (struct TDistrito[], int);
 
 int main () {
     	
-	int estadisticas, media_particular, maximo, minimo, documento;
+	int estadisticas, media_particular, maximo, minimo, opciones;
 	float media1, media2, media3, media4, maximo1, maximo2, maximo3, maximo4, minimo1, minimo2, minimo3, minimo4;
 	 
 	FILE *fentrada, *fsalida;
@@ -52,20 +52,10 @@ int main () {
         return 0;
     }
 	
-	printf("Quieres imprimir el documento en .exe (1) o .txt(2) \n");
-	scanf("%d", &documento);
-	
-	switch (documento) {
-			case 1: 
-				imprimirMes(mes, 26, fsalida, fentrada);
-				break;
-				
-			case 2:
-				imprimirMestxt(mes, 26, fsalida, fentrada);
-				break;
-		}	
+    imprimirMes(mes, 26, fsalida, fentrada);
+	imprimirMestxt(mes, 26, fsalida, fentrada);
     
-	printf("Que estadistica quieres calcular? Selecciona un numero de los siguientes:\n1 - Media\n2 - Maximo\n3 - Minimo\n");
+	printf("\nQue estadistica quieres calcular? Selecciona un numero de los siguientes:\n1 - Media\n2 - Maximo\n3 - Minimo\n");
 	scanf("%d", &estadisticas);
 	
 	switch(estadisticas){ //hacer estadisticas 
@@ -161,7 +151,7 @@ void imprimirMes(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentrada)
         fprintf(fsalida, "%s\t%s\t%s\t%s\t%s\n", titulo1,titulo2, titulo3, titulo4, titulo5);
     }
     
-    for (i = 0; i < dim; i++) {
+    for (i = 1; i < dim; i++) {
         fprintf(fsalida, "%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes);
     }
 }
@@ -171,7 +161,7 @@ void imprimirMestxt(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentra
     char titulo1[50], titulo2[50], titulo3[50], titulo4[50], titulo5[50];
     
     for (i = 0; i < 1; i++) {
-        scanf("%s%s%s%s%s", titulo1, titulo2, titulo3, titulo4, titulo5);
+        fscanf(fentrada, "%s%s%s%s%s", titulo1, titulo2, titulo3, titulo4, titulo5);
     }
     
     while (fscanf(fentrada, "%s%f%d%d%d", mes[i].parametros, &mes[i].ph, &mes[i].conductividad, &mes[i].turbidez, &mes[i].coliformes) != EOF) {
@@ -182,7 +172,7 @@ void imprimirMestxt(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentra
         printf("%s\t%s\t%s\t%s\t%s\n", titulo1,titulo2, titulo3, titulo4, titulo5);
     }
     
-    for (i = 0; i < dim; i++) {
+    for (i = 1; i < dim; i++) {
         printf("%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes);
     }
 }
