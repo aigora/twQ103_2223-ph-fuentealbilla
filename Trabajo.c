@@ -12,9 +12,25 @@ struct TDistrito {
 void imprimirMes(struct TDistrito [], int, FILE *, FILE *);
 void imprimirMestxt(struct TDistrito [], int, FILE *, FILE *);
 
+int media1 (struct TDistrito[], int);
+int media2 (struct TDistrito[], int);
+int media3 (struct TDistrito[], int);
+int media4 (struct TDistrito[], int);
+
+int maximo1 (struct TDistrito[], int);
+int maximo2 (struct TDistrito[], int);
+int maximo3 (struct TDistrito[], int);
+int maximo4 (struct TDistrito[], int);
+	
+int minimo1 (struct TDistrito[], int);
+int minimo2 (struct TDistrito[], int);
+int minimo3 (struct TDistrito[], int);
+int minimo4 (struct TDistrito[], int);
+
+
 int main () {
     	
-	int estadisticas, media_particular, maximo, minimo;
+	int estadisticas, media_particular, maximo, minimo, documento;
 	float media1, media2, media3, media4, maximo1, maximo2, maximo3, maximo4, minimo1, minimo2, minimo3, minimo4;
 	 
 	FILE *fentrada, *fsalida;
@@ -35,16 +51,23 @@ int main () {
         printf("Error en la apertura del fichero de salida\n");
         return 0;
     }
-
-    imprimirMes(mes, 26, fsalida, fentrada);
-    
-    fclose(fentrada);
-    fclose(fsalida);
+	
+	printf("Quieres imprimir el documento en .exe (1) o .txt(2) \n");
+	scanf("%d", &documento);
+	
+	switch (documento) {
+			case 1: 
+				imprimirMes(mes, 26, fsalida, fentrada);
+				break;
+				
+			case 2:
+				imprimirMestxt(mes, 26, fsalida, fentrada);
+				break;
+		}	
     
 	printf("Que estadistica quieres calcular? Selecciona un numero de los siguientes:\n1 - Media\n2 - Maximo\n3 - Minimo\n");
 	scanf("%d", &estadisticas);
-
-
+	
 	switch(estadisticas){ //hacer estadisticas 
 		
 		case 1:
@@ -118,6 +141,8 @@ int main () {
 		
 	}	
 	
+	fclose(fentrada);
+    fclose(fsalida);
 }
 
 void imprimirMes(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentrada) {
@@ -161,21 +186,6 @@ void imprimirMestxt(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentra
         printf("%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes);
     }
 }
-
-int media1 (struct TDistrito[], int);
-int media2 (struct TDistrito[], int);
-int media3 (struct TDistrito[], int);
-int media4 (struct TDistrito[], int);
-
-int maximo1 (struct TDistrito[], int n);
-int maximo2 (struct TDistrito[], int n);
-int maximo3 (struct TDistrito[], int n);
-int maximo4 (struct TDistrito[], int n);
-	
-int minimo1 (struct TDistrito[], int n);
-int minimo2 (struct TDistrito[], int n);
-int minimo3 (struct TDistrito[], int n);
-int minimo4 (struct TDistrito[], int n);
 
 int media1(struct TDistrito mes[], int n){ //media ph
 	int suma=0, i;
@@ -318,4 +328,3 @@ int minimo4 (struct TDistrito mes[], int n){ //minimo coliformes
 	}
 	return minimo4;
 }
-
