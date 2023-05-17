@@ -10,7 +10,6 @@ struct TDistrito {
 };
 
 void imprimirMestxt(struct TDistrito [], int, FILE *, FILE*);
-void imprimirMes(struct TDistrito [], int, FILE *, FILE*);
 
 int main () {
     
