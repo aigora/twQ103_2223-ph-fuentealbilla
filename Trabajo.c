@@ -9,7 +9,7 @@ struct TDistrito {
     int coliformes;
 };
 
-void imprimirMes(struct TDistrito [], int, FILE *, FILE *);
+void imprimirMes(struct TDistrito [], int, FILE *, FILE *, int);
 void imprimirMestxt(struct TDistrito [], int, FILE *, FILE *);
 
 int media1 (struct TDistrito[], int);
@@ -30,7 +30,7 @@ int minimo4 (struct TDistrito[], int);
 
 int main () {
     	
-	int estadisticas, media_particular, maximo, minimo;
+	int estadisticas, media_particular, maximo, minimo, guardar;
 	float media1, media2, media3, media4, maximo1, maximo2, maximo3, maximo4, minimo1, minimo2, minimo3, minimo4;
 	 
 	FILE *fentrada, *fsalida;
@@ -45,15 +45,19 @@ int main () {
         printf("Error en la apertura del fichero de entrada\n");
         return 0;
     }
-
-    fsalida = fopen("resultadosfuentes.txt", "w");
-    if (fsalida == NULL) {
-        printf("Error en la apertura del fichero de salida\n");
-        return 0;
-    }
 	
-    imprimirMes(mes, 26, fsalida, fentrada);
-	imprimirMestxt(mes, 26, fsalida, fentrada);
+	printf("\nQuieres guardar los datos en un .txt al finalizar al cerrar el programa? Se incluiran los valores calculados) \nSi (1) No (0) \n");
+    scanf("%d", &guardar);
+    
+    if (guardar == 1) {
+    	fsalida = fopen("resultadosfuentes.txt", "w");
+    	if (fsalida == NULL) {
+        	printf("Error en la apertura del fichero de salida\n");
+       	 	return 0;
+  			}
+	}
+    
+    imprimirMes(mes, 25, fsalida, fentrada, guardar);
     
 	printf("\nQue estadistica quieres calcular? Selecciona un numero de los siguientes:\n1 - Media\n2 - Maximo\n3 - Minimo\n");
 	scanf("%d", &estadisticas);
@@ -135,56 +139,45 @@ int main () {
     fclose(fsalida);
 }
 
-void imprimirMes(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentrada) {
+void imprimirMes(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentrada, int guardar) {
     int i;
-    char titulo1[50], titulo2[50], titulo3[50], titulo4[50], titulo5[50];
+    char titulo1[100], titulo2[50], titulo3[50], titulo4[50], titulo5[50];
     
-    for (i = 0; i < 1; i++) {
-        fscanf(fentrada, "%s%s%s%s%s", titulo1, titulo2, titulo3, titulo4, titulo5);
-    }
-    
-    while (fscanf(fentrada, "%s%f%d%d%d", mes[i].parametros, &mes[i].ph, &mes[i].conductividad, &mes[i].turbidez, &mes[i].coliformes) != EOF) {
-		i++;
-	}
-    
-    for (i = 0; i < 1; i++) {
-        fprintf(fsalida, "%s\t%s\t%s\t%s\t%s\n", titulo1,titulo2, titulo3, titulo4, titulo5);
-    }
-    
-    for (i = 1; i < dim; i++) {
-        fprintf(fsalida, "%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes);
-    }
-}
+    fscanf(fentrada, "%s%s%s%s%s", titulo1, titulo2, titulo3, titulo4, titulo5);
 
-void imprimirMestxt(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentrada) {
-    int i;
-    char titulo1[50], titulo2[50], titulo3[50], titulo4[50], titulo5[50];
-    
-    for (i = 0; i < 1; i++) {
-        fscanf(fentrada, "%s%s%s%s%s", titulo1, titulo2, titulo3, titulo4, titulo5);
-    }
-    
+    i=0;
     while (fscanf(fentrada, "%s%f%d%d%d", mes[i].parametros, &mes[i].ph, &mes[i].conductividad, &mes[i].turbidez, &mes[i].coliformes) != EOF) {
 		i++;
 	}
     
+    printf("\n\t\t\t----DOCUMENTO---- \n");
     for (i = 0; i < 1; i++) {
         printf("%s\t%s\t%s\t%s\t%s\n", titulo1,titulo2, titulo3, titulo4, titulo5);
     }
     
-    for (i = 1; i < dim; i++) {
+    for (i = 0; i < dim; i++) {
         printf("%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes);
     }
+    
+    if (guardar == 1) {
+    	for (i = 0; i < 1; i++) {
+        fprintf(fsalida, "%s\t%s\t%s\t%s\t%s\n", titulo1,titulo2, titulo3, titulo4, titulo5);
+    }
+    
+    for (i = 0; i < dim; i++) {
+        fprintf(fsalida, "%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes);
+    }
+	}
 }
 
 int media1(struct TDistrito mes[], int n){ //media ph
 	int suma=0, i;
 	float media1;
 	
-	for(i=0;i<25;i++){
+	for(i=0;i<n;i++){
 		suma += mes[i].ph;
 	}
-	media1=(float)suma/25;
+	media1=(float)suma/n;
 	
 	return media1;
 }
@@ -193,10 +186,10 @@ int media2 (struct TDistrito mes[], int n){ //media conductividad
 	int suma=0, i;
 	float media2;
 	
-	for(i=0;i<25;i++){
+	for(i=0;i<n;i++){
 		suma += mes[i].conductividad;
 	}
-	media2=suma/25;
+	media2=suma/n;
 	
 	return media2;
 }
@@ -205,10 +198,10 @@ int media3 (struct TDistrito mes[], int n){ //media turbidez
 	int suma=0, i;
 	float media3;
 	
-	for(i=0;i<25;i++){
+	for(i=0;i<n;i++){
 		suma += mes[i].turbidez;
 	}
-	media3=suma/25;
+	media3=suma/n;
 	
 	return media3;
 }
@@ -218,10 +211,10 @@ int media4 (struct TDistrito mes[], int n){ //media coliformes
 	int suma=0, i;
 	float media4;
 	
-	for(i=0;i<25;i++){
+	for(i=0;i<n;i++){
 		suma += mes[i].coliformes;
 	}
-	media4=suma/25;
+	media4=suma/n;
 	
 	return media4;
 }
@@ -231,7 +224,7 @@ int maximo1 (struct TDistrito mes[], int n){ //maximo ph
 	int i, contador;
 	float maximo1=0;
 	
-	for(i=0;i<25;i++){
+	for(i=0;i<n;i++){
 		if(maximo1<mes[i].ph){
 			maximo1=mes[i].ph;
 		}
@@ -243,7 +236,7 @@ int maximo2 (struct TDistrito mes[], int n){ //maximo conductividad
 	
 	int i,maximo2=0;
 	
-	for(i=0;i<25;i++){
+	for(i=0;i<n;i++){
 		if(maximo2<mes[i].conductividad){
 			maximo2=mes[i].conductividad;
 		}
@@ -255,7 +248,7 @@ int maximo3 (struct TDistrito mes[], int n){ //maximo turbidez
 	
 	int i,maximo3=0;
 	
-	for(i=0;i<25;i++){
+	for(i=0;i<n;i++){
 		if(maximo3<mes[i].turbidez){
 			maximo3=mes[i].turbidez;
 		}
@@ -267,7 +260,7 @@ int maximo4 (struct TDistrito mes[], int n){ //maximo coliformes
 	
 	int i,maximo4=0;
 	
-	for(i=0;i<25;i++){
+	for(i=0;i<n;i++){
 		if(maximo4<mes[i].coliformes){
 			maximo4=mes[i].coliformes;
 		}
@@ -278,7 +271,7 @@ int minimo1 (struct TDistrito mes[], int n){ //minimo ph
 	
 	int i, minimo1=0;
 	
-	for(i=0;i<25;i++){
+	for(i=0;i<n;i++){
 		if(minimo1>mes[i].ph){
 			minimo1=mes[i].ph;
 		}
@@ -289,7 +282,7 @@ int minimo2(struct TDistrito mes[], int n){ //minimo conductividad
 	
 	int i, minimo2=0;
 	
-	for(i=0;i<25;i++){
+	for(i=0;i<n;i++){
 		if(minimo2>mes[i].conductividad){
 			minimo2=mes[i].conductividad;
 		}
@@ -300,7 +293,7 @@ int minimo3 (struct TDistrito mes[], int n){ //minimo turbidez
 	
 	int i, minimo3=0;
 	
-	for(i=0;i<25;i++){
+	for(i=0;i<n;i++){
 		if(minimo3>mes[i].turbidez){
 			minimo3=mes[i].turbidez;
 		}
@@ -311,7 +304,7 @@ int minimo4 (struct TDistrito mes[], int n){ //minimo coliformes
 	
 	int i, minimo4=0;
 	
-	for(i=0;i<25;i++){
+	for(i=0;i<n;i++){
 		if(minimo4>mes[i].coliformes){
 			minimo4=mes[i].coliformes;
 		}
