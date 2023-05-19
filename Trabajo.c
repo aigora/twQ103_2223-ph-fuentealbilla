@@ -10,7 +10,6 @@ struct TDistrito {
 };
 
 void imprimirMes(struct TDistrito [], int, FILE *, FILE *, int);
-void imprimirMestxt(struct TDistrito [], int, FILE *, FILE *);
 
 int media1 (struct TDistrito[], int);
 int media2 (struct TDistrito[], int);
@@ -54,7 +53,7 @@ int main () {
     	if (fsalida == NULL) {
         	printf("Error en la apertura del fichero de salida\n");
        	 	return 0;
-  			}
+  		}
 	}
     
     imprimirMes(mes, 25, fsalida, fentrada, guardar);
