@@ -225,44 +225,46 @@ float media1(struct TDistrito mes[], int n){ //media ph
 	return media;
 }
 
-float media2(struct TDistrito mes[], int n){ //media ph
+float media2(struct TDistrito mes[], int n){ //media conductividad
 	float suma=0;
 	int i;
 	float media;
 	
 	for(i=1;i<n;i++){
-		suma += mes[i].ph;
+		suma += mes[i].conductividad;
 	}
 	media=suma/n;
 	
 	return media;
 }
 
-float media3(struct TDistrito mes[], int n){ //media ph
+float media3(struct TDistrito mes[], int n){ //media turbidez
 	float suma=0;
 	int i;
 	float media;
 	
 	for(i=1;i<n;i++){
-		suma += mes[i].ph;
+		suma += mes[i].turbidez;
 	}
 	media=suma/n;
 	
 	return media;
 }
 
-float media4(struct TDistrito mes[], int n){ //media ph
+float media4(struct TDistrito mes[], int n){ //media coliformes
 	float suma=0;
 	int i;
 	float media;
 	
 	for(i=1;i<n;i++){
-		suma += mes[i].ph;
+		suma += mes[i].coliformes;
 	}
 	media=suma/n;
 	
 	return media;
 }
+
+
 float maximo1 (struct TDistrito mes[], int n){ //maximo ph
 	
 	struct TDistrito maximo1;
