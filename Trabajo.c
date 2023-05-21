@@ -45,7 +45,7 @@ int main () {
         return 0;
     }
 	
-	printf("\nQuieres guardar los datos en un .txt al finalizar al cerrar el programa? Se incluiran los valores calculados) \nSi (1) No (0) \n");
+	printf("\nQuieres guardar los datos en un .txt al finalizar al cerrar el programa? Se incluiran los valores calculados \nSi (1) No (0) \n");
     scanf("%d", &guardar);
     
     if (guardar == 1) {
