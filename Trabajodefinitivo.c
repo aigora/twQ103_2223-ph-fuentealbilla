@@ -73,15 +73,27 @@ int main () {
 					
 					case 1:
 						printf("Media de pH = %f", media1(mes,25));
+						if (guardar == 1) {
+							fprintf(fsalida, "Media de pH = %f\n", media1(mes,25));
+						}
 						break;
 					case 2:
-						printf("Media de Conductividad = %f", media2(mes,25));
+						printf("Media de Conductividad = %f\n", media2(mes,25));
+						if (guardar == 1) {
+							fprintf(fsalida, "Media de Conductividad = %f\n", media2(mes,25));
+						}
 						break;
 					case 3:
 						printf("Media de Turbidez = %f", media3(mes,25));
+						if (guardar == 1) {
+							fprintf(fsalida, "Media de Turbidez = %f\n", media3(mes,25));
+						}
 						break;
 					case 4:
 						printf("Media de Coliformes = %f", media4(mes,25));
+						if (guardar == 1) {
+							fprintf(fsalida, "Media de Coliformes = %f\n", media4(mes,25));
+						}
 						break;
 				}
 				
@@ -96,15 +108,27 @@ int main () {
 					
 					case 1:
 						printf("Maximo de pH = %f", maximo1(mes,25));
+						if (guardar == 1) {
+							fprintf(fsalida, "Maximo de pH = %f\n", maximo1(mes,25));
+						}
 						break;
 					case 2:
 						printf("Maximo de Conductividad = %d", maximo2(mes,25));
+						if (guardar == 1) {
+							fprintf(fsalida, "Maximo de Conductividad = %f\n", maximo2(mes,25));
+						}
 						break;
 					case 3:
 						printf("Maximo de Turbidez = %d", maximo3(mes,25));
+						if (guardar == 1) {
+							fprintf(fsalida, "Maximo de Turbidez = %f\n", maximo3(mes,25));
+						}
 						break;
 					case 4:
 						printf("Maximo de Coliformes = %d", maximo4(mes,25));
+						if (guardar == 1) {
+							fprintf(fsalida, "Maximo de Coliformes = %f\n", maximo4(mes,25));
+						}
 						break;
 				}
 				
@@ -119,28 +143,38 @@ int main () {
 					
 					case 1:
 						printf("Minimo de pH = %f", minimo1(mes,25));
+						if (guardar == 1) {
+							fprintf(fsalida, "Minimo de pH = %f\n", minimo1(mes,25));
+						}
 						break;
 					case 2:
 						printf("Minimo de Conductividad = %d", minimo2(mes,25));
+						if (guardar == 1) {
+							fprintf(fsalida, "Minimo de Conducitividad = %f\n", minimo2(mes,25));
+						}
 						break;
 					case 3:
 						printf("Minimo de Turbidez = %d", minimo3(mes,25));
+						if (guardar == 1) {
+							fprintf(fsalida, "Minimo de Turbidez = %f\n", minimo3(mes,25));
+						}
 						break;
 					case 4:
 						printf("Minimo de Coliformes = %d", minimo4(mes,25));
+						if (guardar == 1) {
+							fprintf(fsalida, "Minimo de Coliformes = %f\n", minimo4(mes,25));
+						}
 						break;
 				}
 				
 				break;
 				
 			case 4:
+				fclose(fsalida);
 				return 0;
 			
 		}
 	} while (estadisticas != 4);
-	
-	//fclose(fentrada);
-    //fclose(fsalida);
 }
 
 void imprimirMes(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentrada, int guardar) {
@@ -174,7 +208,7 @@ void imprimirMes(struct TDistrito mes[], int dim, FILE *fsalida, FILE *fentrada,
         fprintf(fsalida, "%s\t%.2f\t%d\t%d\t%d\n", mes[i].parametros, mes[i].ph, mes[i].conductividad, mes[i].turbidez, mes[i].coliformes);
     	}
     
-    fclose(fsalida);
+    //fclose(fsalida);
 	}
 }
 
