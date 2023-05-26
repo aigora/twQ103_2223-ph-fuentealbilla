@@ -230,7 +230,7 @@ float media2(struct TDistrito mes[], int n){ //media conductividad
 	int i;
 	float media;
 	
-	for(i=1;i<n;i++){
+	for(i=0;i<n;i++){
 		suma += mes[i].conductividad;
 	}
 	media=suma/n;
@@ -243,7 +243,7 @@ float media3(struct TDistrito mes[], int n){ //media turbidez
 	int i;
 	float media;
 	
-	for(i=1;i<n;i++){
+	for(i=0;i<n;i++){
 		suma += mes[i].turbidez;
 	}
 	media=suma/n;
@@ -256,7 +256,7 @@ float media4(struct TDistrito mes[], int n){ //media coliformes
 	int i;
 	float media;
 	
-	for(i=1;i<n;i++){
+	for(i=0;i<n;i++){
 		suma += mes[i].coliformes;
 	}
 	media=suma/n;
@@ -272,7 +272,7 @@ float maximo1 (struct TDistrito mes[], int n){ //maximo ph
 
     maximo1=mes[1];
 	
-	for(i=1;i<n;i++){
+	for(i=0;i<n;i++){
 		if(mes[i].ph > maximo1.ph){
 			maximo1=mes[i];
 		}
@@ -287,7 +287,7 @@ int maximo2 (struct TDistrito mes[], int n){ //maximo ph
 
     maximo2=mes[1];
 	
-	for(i=1;i<n;i++){
+	for(i=0;i<n;i++){
 		if(mes[i].conductividad > maximo2.conductividad){
 			maximo2=mes[i];
 		}
@@ -302,7 +302,7 @@ int maximo3 (struct TDistrito mes[], int n){ //maximo ph
 
     maximo3=mes[1];
 	
-	for(i=1;i<n;i++){
+	for(i=0;i<n;i++){
 		if(mes[i].turbidez > maximo3.turbidez){
 			maximo3=mes[i];
 		}
@@ -317,7 +317,7 @@ int maximo4 (struct TDistrito mes[], int n){ //maximo ph
 
     maximo4=mes[1];
 	
-	for(i=1;i<n;i++){
+	for(i=0;i<n;i++){
 		if(mes[i].coliformes > maximo4.coliformes){
 			maximo4=mes[i];
 		}
@@ -332,7 +332,7 @@ float minimo1 (struct TDistrito mes[], int n){ //minimo ph
 
     minimo1=mes[1];
 	
-	for(i=1;i<n;i++){
+	for(i=0;i<n;i++){
 		if(mes[i].ph < minimo1.ph){
 			minimo1=mes[i];
 		}
@@ -347,7 +347,7 @@ int minimo2(struct TDistrito mes[], int n){ //minimo conductividad
 
     minimo2=mes[1];
 	
-	for(i=1;i<n;i++){
+	for(i=0;i<n;i++){
 		if(mes[i].conductividad < minimo2.conductividad){
 			minimo2=mes[i];
 		}
@@ -362,7 +362,7 @@ int minimo3(struct TDistrito mes[], int n){ //minimo turbidez
 
     minimo3=mes[1];
 	
-	for(i=1;i<n;i++){
+	for(i=0;i<n;i++){
 		if(mes[i].turbidez < minimo3.turbidez){
 			minimo3=mes[i];
 		}
@@ -377,7 +377,7 @@ int minimo4(struct TDistrito mes[], int n){ //minimo coliformes
 
     minimo4=mes[1];
 	
-	for(i=1;i<n;i++){
+	for(i=0;i<n;i++){
 		if(mes[i].coliformes < minimo4.coliformes){
 			minimo4=mes[i];
 		}
